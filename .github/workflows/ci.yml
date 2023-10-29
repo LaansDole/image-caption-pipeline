@@ -24,8 +24,8 @@ jobs:
         run: poetry install --no-root --no-interaction
 
       - name: Formatting
-        run: poetry run black --check app
+        run: poetry run black --check .
       - name: Linting
-        run: poetry run ruff --output-format=github app
+        run: poetry run ruff --output-format=github **/*.py
       - name: Static Type Checking
-        run: poetry run mypy app
+        run: poetry run mypy **/*.py
