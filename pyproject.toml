@@ -54,7 +54,7 @@ warn_untyped_fields = true
 [tool.poe.tasks]
 compose = "python3 main.py"
 format = "black --check ."
-lint = "ruff --output-format=github ./*.py"
+lint = "ruff --output-format=github ./main.py"
 typecheck = "mypy ./*.py"
 test = "run coverage run --source ./ -m pytest"
 
