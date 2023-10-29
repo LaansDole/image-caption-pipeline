@@ -10,11 +10,14 @@ readme = "README.md"
 python = "^3.11"
 fastapi = "^0.103.2"
 uvicorn = {extras = ["standard"], version = "^0.23.2"}
+httpx = "^0.25.0"
 
 [tool.poetry.group.dev.dependencies]
-ruff = "^0.0.292"
-black = "^23.9.1"
-mypy = "^1.6.0"
+ruff = "^0.1.2"
+black = "^23.10.1"
+mypy = "^1.6.1"
+pytest = "^7.4.3"
+coverage = "^7.3.2"
 
 [tool.black]
 line-length = 88
@@ -53,6 +56,7 @@ compose = "python3 main.py"
 format = "black --check ."
 lint = "ruff --output-format=github ./*.py"
 typecheck = "mypy ./*.py"
+test = "run coverage run --source ./ -m pytest"
 
 [build-system]
 requires = ["poetry-core"]

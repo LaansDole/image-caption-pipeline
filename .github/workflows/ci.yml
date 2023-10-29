@@ -13,8 +13,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Install poetry
-        run: pipx install poetry
+      - name: Install poetry and poe
+        run: |
+          pipx install poetry
+          pipx install poe
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
@@ -24,11 +26,34 @@ jobs:
         run: poetry install --no-root --no-interaction
 
       - name: Formatting
-        run: poetry run black --check .
+        run: poe format
       - name: Linting
-        run: poetry run ruff --output-format=github ./*.py
+        run: poe lint
       - name: Static Type Checking
-        run: poetry run mypy ./*.py
+        run: poe typecheck
+
+  testing:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install poetry and poe
+        run: |
+          pipx install poetry
+          pipx install poe
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+          cache: "poetry"
+      - name: Install Dependencies
+        run: poetry install --no-root --no-interaction
+
+      - name: Test & Coverage
+        run: poe test
+      - name: Coverage Report
+        run: |
+          poetry run coverage xml
+          poetry run coverage report -m
       - name: Upload coverage reports to Codecov
         uses: codecov/codecov-action@v3
         env:

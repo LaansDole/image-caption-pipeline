@@ -1,7 +1,20 @@
 import uvicorn
 from fastapi import FastAPI
+from pydantic import BaseModel
 
 app = FastAPI()
+
+
+class Data(BaseModel):
+    item: str
+
+
+@app.get("/data", response_model=Data)
+async def get_data() -> Data:
+    """
+    Get Data
+    """
+    return Data(item="devops")
 
 
 @app.get("/")
