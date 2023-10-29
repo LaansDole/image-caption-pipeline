@@ -13,10 +13,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Install poetry and poe
-        run: |
-          pipx install poetry
-          pipx install poe
+      - name: Install poetry
+        run: pipx install poetry
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
@@ -26,20 +24,18 @@ jobs:
         run: poetry install --no-root --no-interaction
 
       - name: Formatting
-        run: poe format
+        run: poetry run black --check .
       - name: Linting
-        run: poe lint
+        run: poetry run ruff --output-format=github ./*.py
       - name: Static Type Checking
-        run: poe typecheck
+        run: poetry run mypy ./*.py
 
   testing:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Install poetry and poe
-        run: |
-          pipx install poetry
-          pipx install poe
+      - name: Install poetry
+        run: pipx install poetry
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
@@ -49,7 +45,7 @@ jobs:
         run: poetry install --no-root --no-interaction
 
       - name: Test & Coverage
-        run: poe test
+        run: poetry run coverage run --source ./app -m pytest
       - name: Coverage Report
         run: |
           poetry run coverage xml
