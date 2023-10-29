@@ -48,6 +48,12 @@ init_typed = true
 warn_required_dynamic_aliases = true
 warn_untyped_fields = true
 
+[tool.poe.tasks]
+compose = "python3 main.py"
+format = "black --check ."
+lint = "ruff --output-format=github ./*.py"
+typecheck = "mypy ./*.py"
+
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
