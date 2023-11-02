@@ -1,6 +1,14 @@
 # Python, Poetry and Poe The Poet
 
+Refer to ***[TODO](./TODO.md)*** to see the future propects of the project 
+
 This project uses Python and poetry, the modern Python package installer. Remember to run this command in the root directory of your project where the `pyproject.toml` file is located. Here are the main elements you need to know to get started:
+
+## DevOps Quick Start Guide
+
+DevOps CI/CD Quick Start Guide with GitHub Actions 🛠️🐙⚡️
+
+[![codecov](https://codecov.io/gh/dpills/devops-quick-start-guide/graph/badge.svg?token=jwraAw5pYK)](https://codecov.io/gh/dpills/devops-quick-start-guide)
 
 ## Virtual Environment
 
@@ -9,13 +17,6 @@ Note that for this the package venv is to be used.
 To know well the what is it and the why check this out https://docs.python.org/3/tutorial/venv.html
 
 In short, a virtual environment will help us manage an isolated version of python interpreter. And so too installed packages. In this way. Different project will not have to depends on the same packages installation and have to conflict. Read the link above explain and show it well.
-
-You may like to check the explanation on flask framework doc.
-
-https://flask.palletsprojects.com/en/2.1.x/installation/#virtual-environments
-
-Why we care about this and should use it. To isolate the projects. (each have it's environment). And then freeze command will work per project base. Check the last section.
-A virtual environment is a self-contained directory tree that contains a Python installation for a particular version of Python, plus a number of additional packages. 
 
 ## Usage
 
