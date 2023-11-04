@@ -1,4 +1,4 @@
-# Python, Poetry and Poe The Poet
+# FastAPI with Poe
 
 Refer to ***[TODO](./TODO.md)*** to see the future propects of the project 
 
