@@ -87,10 +87,14 @@ poe lint
 poe typecheck
 ```
 
-## Freeze command
+## Requirements.txt
 
-The Poetry equivalent of `pip freeze` is:
+- To export the requirements.txt
+```bash
+poetry export -f requirements.txt --output requirements.txt --without-hashes --without=dev
+```
 
+- To see the project dependencies
 ```bash
 poetry show --tree --without dev
 ```
