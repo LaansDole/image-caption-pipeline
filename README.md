@@ -1,4 +1,4 @@
-# FastAPI with Poe
+# FastAPI Production Setup with Poe The Poet
 
 Refer to ***[TODO](./TODO.md)*** to see the future propects of the project 
 
@@ -20,7 +20,7 @@ In short, a virtual environment will help us manage an isolated version of pytho
 
 ## Usage
 
-- To create a virtual environment, navigate to your project directory and run:
+- To create a virtual environment, navigate to your root directory and run:
 
 ```bash
 python3 -m venv virtual-env
@@ -37,6 +37,21 @@ source virtual-env/bin/activate
 deactivate
 ```
 
+### ***Alternatively***
+There is another way to create a virtual environment in python using miniconda
+- [Miniconda Installation](https://docs.conda.io/projects/miniconda/en/latest/miniconda-install.html)
+- To create a virtual environment in a specific python version:
+```python
+conda create --name env-python3 python=3.11
+```
+- To activate the environment:
+```python
+conda activate env-python3
+```
+- To deactivate the environment:
+```python
+conda deactivate
+```
 ## Build
 
 ### Prerequisites
