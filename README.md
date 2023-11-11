@@ -65,6 +65,14 @@ brew install poetry
 
 ### Build on local
 
+- ***If you have Docker installed, you can just:***
+
+```docker
+docker compose up --build
+```
+
+- ***Otherwise:***
+
 The Poetry equivalent of `pip install -r requirements.txt` is `poetry install`.
 
 In a Python project managed with Poetry, dependencies are listed in a `pyproject.toml` file. When you run `poetry install`, Poetry reads the `pyproject.toml` file, resolves the dependencies, and installs them:
