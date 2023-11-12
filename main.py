@@ -4,10 +4,6 @@ from pydantic import BaseModel
 from fastapi.responses import HTMLResponse
 from typing import Annotated
 from model_pipeline import predict_step
-import io
-from PIL import Image
-import os
-import tempfile
 
 app = FastAPI()
 

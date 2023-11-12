@@ -1,14 +1,9 @@
-# FastAPI Production Setup with Poe The Poet
+# FastAPI pipeline for Image Captioning Model
 
-Refer to ***[TODO](./TODO.md)*** to see the future propects of the project 
+This project uses Python and poetry. Remember to run below commands in the root directory of your project where the `pyproject.toml` file is located. Here are the main elements you need to know to get started:
 
-This project uses Python and poetry, the modern Python package installer. Remember to run this command in the root directory of your project where the `pyproject.toml` file is located. Here are the main elements you need to know to get started:
-
-## DevOps Quick Start Guide
-
-DevOps CI/CD Quick Start Guide with GitHub Actions 🛠️🐙⚡️
-
-[![codecov](https://codecov.io/gh/dpills/devops-quick-start-guide/graph/badge.svg?token=jwraAw5pYK)](https://codecov.io/gh/dpills/devops-quick-start-guide)
+## Model
+[nlpconnect/vit-gpt2-image-captioning](https://huggingface.co/nlpconnect/vit-gpt2-image-captioning)
 
 ## Virtual Environment
 
@@ -123,39 +118,8 @@ poetry export -f requirements.txt --output requirements.txt --without-hashes --w
 poetry show --tree --without dev
 ```
 
-It should look like this:
-
-```bash
-fastapi 0.103.2 FastAPI framework, high performance, easy to learn, fast to code, ready for production
-├── anyio >=3.7.1,<4.0.0
-│   ├── idna >=2.8 
-│   └── sniffio >=1.1 
-├── pydantic >=1.7.4,<1.8 || >1.8,<1.8.1 || >1.8.1,<2.0.0 || >2.0.0,<2.0.1 || >2.0.1,<2.1.0 || >2.1.0,<3.0.0
-│   ├── annotated-types >=0.4.0 
-│   ├── pydantic-core 2.10.1 
-│   │   └── typing-extensions >=4.6.0,<4.7.0 || >4.7.0 
-│   └── typing-extensions >=4.6.1 (circular dependency aborted here)
-├── starlette >=0.27.0,<0.28.0
-│   └── anyio >=3.4.0,<5 
-│       ├── idna >=2.8 
-│       └── sniffio >=1.1 
-└── typing-extensions >=4.5.0
-uvicorn 0.23.2 The lightning-fast ASGI server.
-├── click >=7.0
-│   └── colorama * 
-├── colorama >=0.4
-├── h11 >=0.8
-├── httptools >=0.5.0
-├── python-dotenv >=0.13
-├── pyyaml >=5.1
-├── uvloop >=0.14.0,<0.15.0 || >0.15.0,<0.15.1 || >0.15.1
-├── watchfiles >=0.13
-│   └── anyio >=3.0.0 
-│       ├── idna >=2.8 
-│       └── sniffio >=1.1 
-└── websockets >=10.4
-```
 # References
 - [Python pip equivalent of node's package.json](https://stackoverflow.com/questions/48941116/does-python-pip-have-the-equivalent-of-nodes-package-json)
 - [Poetry Documentation](https://python-poetry.org/)
 - [Poe The Poet Documentation](https://poethepoet.natn.io/installation.html)
+- [Image Captioning Blog from Ankur Kumar](https://ankur3107.github.io/blogs/the-illustrated-image-captioning-using-transformers/)
