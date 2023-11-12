@@ -1,6 +1,13 @@
 import uvicorn
-from fastapi import FastAPI
+from fastapi import FastAPI, UploadFile, File
 from pydantic import BaseModel
+from fastapi.responses import HTMLResponse
+from typing import Annotated
+from model_pipeline import predict_step
+import io
+from PIL import Image
+import os
+import tempfile
 
 app = FastAPI()
 
@@ -18,11 +25,16 @@ async def get_data() -> Data:
 
 
 @app.get("/")
-async def read_root() -> dict[str, str]:
+async def main():
+    content = """
+<body>
+<form action="/uploadfiles/" enctype="multipart/form-data" method="post">
+<input name="files" type="file" multiple>
+<input type="submit">
+</form>
+</body>
     """
-    Hello World
-    """
-    return {"Hello": "World"}
+    return HTMLResponse(content=content)
 
 
 @app.get("/items/{item_id}")
@@ -31,6 +43,30 @@ async def read_item(item_id: str) -> dict[str, str]:
     Get an Item
     """
     return {"item_id": item_id}
+
+
+@app.post("/uploadfiles/")
+async def create_upload_files(
+    files: Annotated[
+        list[UploadFile], File(description="Multiple files as UploadFile")
+    ],
+):
+    image_paths = []
+    for file in files:
+        contents = await file.read()
+        # Save the file to images folder
+        with open(f"images/{file.filename}", "wb") as f:
+            f.write(contents)
+
+        image_paths.append(f"./images/{file.filename}")
+
+    # Use os.listdir to get all files in the directory
+    # files = os.listdir("./images/tmp")
+
+    print(image_paths)
+    preds = predict_step(image_paths)
+
+    return {"predictions": [pred for pred in preds]}
 
 
 if __name__ == "__main__":
