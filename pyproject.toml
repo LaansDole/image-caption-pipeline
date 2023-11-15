@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "fastapi-quick-start"
+name = "image-caption-pipeline"
 version = "0.1.0"
 description = ""
 authors = ["dolelongan <dolelongan@gmail.com>"]
@@ -60,7 +60,7 @@ warn_required_dynamic_aliases = true
 warn_untyped_fields = true
 
 [tool.poe.tasks]
-compose = "python3 main.py"
+compose = "uvicorn 'main:app' --host=0.0.0.0 --port=8000"
 format = "black --check ."
 lint = "ruff --output-format=github ./main.py"
 typecheck = "mypy ./*.py"

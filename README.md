@@ -51,11 +51,8 @@ conda deactivate
 
 ### Prerequisites
 
+- ***[pipx Installation](https://github.com/pypa/pipx)***
 - ***[Poetry Installation](https://python-poetry.org/docs/#installing-with-pipx)***
-- On MacOS, you can just run:
-```bash
-brew install poetry
-```
 - ***[Poe The Poet Installation](https://poethepoet.natn.io/installation.html)***
 
 ### Build on local
