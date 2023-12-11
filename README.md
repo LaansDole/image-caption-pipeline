@@ -20,15 +20,11 @@ docker compose up --build
 python -m venv .venv
 # Activate the environment, use:
 source .venv/bin/activate
+pip install -r requirements
 ```
 - In a Python project managed with Poetry, dependencies are listed in a `pyproject.toml` file, make sure that `[tool.poetry] name = "bloomsage-backend"`:
 ```bash
-pip install poetry
 poetry install --no-root
-```
-- In a Python project managed with pip, you can simply:
-```bash
-pip install -r requirements
 ```
 ***To add additional dependencies/packages to your project, use:***
 - With `poetry`
@@ -39,7 +35,11 @@ poetry add [dependencies/packages]
 ```bash
 pip install [dependencies/packages]
 ```
+- Once you have done with your session
 ```bash
+# To export the requirements.txt
+pip install -r requirements
+poetry export -f requirements.txt --output requirements.txt --without-hashes --without=dev
 # Deactivate the environment once done, use:
 deactivate
 ```
@@ -52,18 +52,6 @@ poe compose
 - ***To check the type in python files***
 ```bash
 poe typecheck
-```
-
-## Requirements
-
-- To export the requirements.txt
-```bash
-poetry export -f requirements.txt --output requirements.txt --without-hashes --without=dev
-```
-
-- To see the project dependencies
-```bash
-poetry show --tree --without dev
 ```
 
 # References
