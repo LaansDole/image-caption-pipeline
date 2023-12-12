@@ -60,3 +60,4 @@ poe typecheck
 - [Poe The Poet Documentation](https://poethepoet.natn.io/installation.html)
 - [Image Captioning Blog from Ankur Kumar](https://ankur3107.github.io/blogs/the-illustrated-image-captioning-using-transformers/)
 - [pipx Installation](https://github.com/pypa/pipx)
+- [BloomSage Flower Classification](https://github.com/rmit-denominator/bloomsage-backend.git)
